@@ -11,8 +11,8 @@ bz0index         -0.5
 sig0option       0
 sig0index        0.0
 driveAmpFrac     1.e-2
-riDz1            1000
-riDz2            1000
+riDz1            86
+riDz2            168
 alphaMaxAz       1.e-2  
 alphaMinAz       1.e-2
 alphaDz          4.e-4
