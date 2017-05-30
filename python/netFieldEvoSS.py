@@ -50,9 +50,8 @@ rMin = 0.75
 rIn = 1.0
 rOut = 50.0
 rMax = 60.0
-fInvMatrixId = 1300
-riBuffer1 = 2
-riBuffer2 = 18
+riBuffer1 = 14
+riBuffer2 = 191
 nSmooth = 5
 
 mu          = 1.0
@@ -355,7 +354,7 @@ def writeToFile(sg, dgOut, sOut, nOutCurrent, timer):
 
 
 
-sg = StaticGrid(1000)
+sg = StaticGrid(5200)
 
 dgOut = []; sOut = []; tOut=[];
 
