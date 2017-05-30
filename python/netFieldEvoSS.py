@@ -37,6 +37,7 @@ prandtl = 1.0
 tCycle = 2.0*tFlip
 tmax = tWait + nCycles * tCycle
 nr=20
+gridId=1000
 reportCutFactor = 500;
 writeCutFactor = 5000;
 innerAdvBc  = 0
@@ -354,7 +355,7 @@ def writeToFile(sg, dgOut, sOut, nOutCurrent, timer):
 
 
 
-sg = StaticGrid(5200)
+sg = StaticGrid(gridId)
 
 dgOut = []; sOut = []; tOut=[];
 
