@@ -49,10 +49,10 @@ m.rcParams['text.latex.unicode'] = True
 do = reader.Data("../output/run" + str(sys.argv[1]) + "/")
 
 print do.nt
-#print do.data[19][10,86-5]
-#print do.data[19][10,168-5]
-#print do.data[20][10,86-5]
-#print do.data[20][10,168-5]
+print do.data[19][10,86-5]
+print do.data[19][10,168-5]
+print do.data[20][10,86-5]
+print do.data[20][10,168-5]
 
 # all time scales on the same plot
 n=0
