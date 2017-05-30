@@ -1,5 +1,7 @@
 runId            5000
-tWait            1.e2
+gridId           5200
+nr               200
+tWait            1.e1
 tFlip            50.0
 nCycles          0
 nOut						 2000

@@ -1,4 +1,6 @@
 runId            5001
+gridId           1001
+nr               20
 tWait            1.e1
 tFlip            50.0
 nCycles          0

@@ -11,6 +11,8 @@ for i in range(inp.shape[0]):
 	word = inp[i][0]
 	number = inp[i][1]
 	if   word == 'runId' : runId = int(number)
+	elif word == 'gridId' : gridId = number
+	elif word == 'nr' : nr = number
 	elif word == 'tWait' : tWait = number
 	elif word == 'tFlip' : tFlip = number
 	elif word == 'nCycles' : nCycles = number
@@ -36,8 +38,6 @@ for i in range(inp.shape[0]):
 prandtl = 1.0
 tCycle = 2.0*tFlip
 tmax = tWait + nCycles * tCycle
-nr=20
-gridId=1000
 reportCutFactor = 500;
 writeCutFactor = 5000;
 innerAdvBc  = 0
