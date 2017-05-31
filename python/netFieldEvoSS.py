@@ -5,14 +5,18 @@ import sys
 import resource
 import time
 
-# process input file
-inp = np.asarray(np.genfromtxt(str(sys.argv[1]), dtype=None))
+# process input file111
+inp = np.asarray(np.genfromtxt("../input/input"+str(sys.argv[1])+".txt", dtype=None))
 for i in range(inp.shape[0]):
 	word = inp[i][0]
 	number = inp[i][1]
 	if   word == 'runId' : runId = int(number)
-	elif word == 'gridId' : gridId = number
-	elif word == 'nr' : nr = number
+	elif word == 'gridId' : gridId = int(number)
+	elif word == 'nr' : nr = int(number)
+	elif word == 'rMin' : rMin = number
+	elif word == 'rMax' : rMax = number
+	elif word == 'rIn' :  rIn = number
+	elif word == 'rOut' : rOut = number
 	elif word == 'tWait' : tWait = number
 	elif word == 'tFlip' : tFlip = number
 	elif word == 'nCycles' : nCycles = number
@@ -46,13 +50,19 @@ outerAdvBc  = 0
 outerDiffBc = 0
 driveAmp = driveAmpFrac*bInitScale
 dtOut = tmax/float(nOut)
-# params that don't change often
-rMin = 0.75
-rIn = 1.0
-rOut = 50.0
-rMax = 60.0
-riBuffer1 = 14
-riBuffer2 = 191
+tempGrid = np.loadtxt("../fmatrix/outGrid_" + str(gridId) + ".csv", delimiter=',')
+for i in range(nr):
+	if tempGrid[i]:
+		if tempGrid[i]<rIn:
+			riBuffer1=i+1
+		if tempGrid[i]<rOut:
+			riBuffer2=i+1
+print tempGrid[riBuffer1]
+print riBuffer1
+print tempGrid[riBuffer2]
+print riBuffer2
+			
+
 nSmooth = 5
 
 mu          = 1.0
@@ -158,8 +168,8 @@ def getPsiFromBz(sg, dg, bz):
 def getrindex(sg, r1):
 	return (np.abs(sg.r-r1)).argmin()
 def getTimeStep(sg, dg, s):
-	dtAdv  = np.amin(-sg.dr/dg.vAdv)
-	dtDiff = np.amin( sg.dr/dg.vDiff)
+	dtAdv  = np.amin(np.abs(sg.dr/dg.vAdv))
+	dtDiff = np.amin(np.abs(2.0*sg.dr/(3.14159*dg.vDiff)))
 	dt = min(dtAdv, dtDiff)
 	return dt*courantNo
 
@@ -167,6 +177,7 @@ def getTimeStep(sg, dg, s):
 class StaticGrid:
 	def __init__(self, idNum):
 		self.r = np.loadtxt("../fmatrix/outGrid_" + str(idNum) + ".csv", delimiter=',')
+		print self.r
 		self.rootr = np.power(self.r, 0.5)
 		self.x = self.rootr
 		self.dx = np.zeros_like(self.r)
