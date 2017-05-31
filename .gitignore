@@ -1,2 +1,6 @@
-./output/*
+./output/
 .directory
+./*~
+./fmatrix/old/
+./python/*~
+./mathematica/*~
