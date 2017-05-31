@@ -354,7 +354,6 @@ def writeToFile(sg, dgOut, sOut, nOutCurrent, timer):
 
 
 
-
 sg = StaticGrid(gridId)
 
 dgOut = []; sOut = []; tOut=[];
