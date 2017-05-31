@@ -3,10 +3,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[         0,          0]
-NotebookDataLength[     24758,        537]
-NotebookOptionsPosition[     23784,        497]
-NotebookOutlinePosition[     24123,        512]
-CellTagsIndexPosition[     24080,        509]
+NotebookDataLength[     33913,        744]
+NotebookOptionsPosition[     32497,        691]
+NotebookOutlinePosition[     32834,        706]
+CellTagsIndexPosition[     32791,        703]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -18,8 +18,8 @@ Cell[BoxData[{
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
-  "SetDirectory", "[", "\"\</home/dan/ResearchLocal/netFieldEvo/fmatrix\>\"", 
-   "]"}], ";"}]}], "Input",
+  "SetDirectory", "[", "\"\</home/dan/ResearchLocal/netFieldEvo/fmatrix/\>\"",
+    "]"}], ";"}]}], "Input",
  CellChangeTimes->{{3.5683889742299585`*^9, 3.5683890435719247`*^9}, {
    3.5683893327974677`*^9, 3.5683893713386717`*^9}, {3.568727994673385*^9, 
    3.568728076199048*^9}, {3.568728117163391*^9, 3.568728160593875*^9}, 
@@ -88,13 +88,13 @@ Cell[BoxData[{
    3.662316498853507*^9}, {3.66343076025014*^9, 3.663430796796114*^9}, {
    3.705159975357616*^9, 3.705159976710635*^9}, {3.705160021719921*^9, 
    3.705160022816683*^9}, {3.7051628704178257`*^9, 3.705162942761487*^9}, 
-   3.705162974909567*^9}],
+   3.705162974909567*^9, {3.705242137533435*^9, 3.705242140032303*^9}}],
 
 Cell[BoxData[{
  RowBox[{
-  RowBox[{"runId", "=", "1003"}], ";"}], "\[IndentingNewLine]", 
+  RowBox[{"runId", "=", "5201"}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
-  RowBox[{"nr", "=", "400"}], ";"}]}], "Input",
+  RowBox[{"nr", "=", "200"}], ";"}]}], "Input",
  CellChangeTimes->{{3.665327178909536*^9, 3.665327180947981*^9}, {
    3.665345241026758*^9, 3.665345241077902*^9}, {3.673014631841498*^9, 
    3.673014632361168*^9}, {3.673014831214026*^9, 3.67301483201024*^9}, 
@@ -104,7 +104,8 @@ Cell[BoxData[{
    3.673030880688738*^9, 3.673030881450478*^9}, {3.679153881522107*^9, 
    3.679153881676499*^9}, {3.705159981536593*^9, 3.7051599856712627`*^9}, {
    3.7051620990720053`*^9, 3.705162103126931*^9}, {3.705240741345462*^9, 
-   3.705240751254943*^9}, {3.7052407912727737`*^9, 3.705240806662251*^9}}],
+   3.705240751254943*^9}, {3.7052407912727737`*^9, 3.705240806662251*^9}, {
+   3.705241935243746*^9, 3.705241940788701*^9}}],
 
 Cell[CellGroupData[{
 
@@ -117,6 +118,8 @@ Cell["Import", "Subsection",
    3.67302140106544*^9}, {3.705159830277463*^9, 3.705159830462925*^9}, {
    3.705161992636891*^9, 3.7051619949989223`*^9}},
  Background->GrayLevel[0.85]],
+
+Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{"Do", "[", "\[IndentingNewLine]", 
@@ -164,6 +167,59 @@ Cell[BoxData[
    3.705162513189994*^9, 3.7051625160870667`*^9}, {3.705162580532514*^9, 
    3.705162585166711*^9}, {3.705162995825102*^9, 3.705163010850266*^9}}],
 
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Import", "::", "nffil"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"File not found during \
+\[NoBreak]\\!\\(\\*RowBox[{\\\"Import\\\"}]\\)\[NoBreak]. \\!\\(\\*ButtonBox[\
+\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/Import/nffil\\\", ButtonNote -> \
+\\\"Import::nffil\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.705241943769836*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Import", "::", "nffil"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"File not found during \
+\[NoBreak]\\!\\(\\*RowBox[{\\\"Import\\\"}]\\)\[NoBreak]. \\!\\(\\*ButtonBox[\
+\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/Import/nffil\\\", ButtonNote -> \
+\\\"Import::nffil\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.705241943788466*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Import", "::", "nffil"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"File not found during \
+\[NoBreak]\\!\\(\\*RowBox[{\\\"Import\\\"}]\\)\[NoBreak]. \\!\\(\\*ButtonBox[\
+\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/Import/nffil\\\", ButtonNote -> \
+\\\"Import::nffil\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.705241943804706*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "stop"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Further output of \
+\[NoBreak]\\!\\(\\*StyleBox[RowBox[{\\\"Import\\\", \\\"::\\\", \
+\\\"nffil\\\"}], \\\"MessageName\\\"]\\)\[NoBreak] will be suppressed during \
+this calculation. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/stop\\\", ButtonNote -> \
+\\\"General::stop\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.705241943851988*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
 Cell[BoxData[{
  RowBox[{
   RowBox[{"fmatrix", "=", 
@@ -194,7 +250,64 @@ Cell[BoxData[{
   3.7051621180444603`*^9, 3.705162118880138*^9}, {3.705162528964671*^9, 
   3.705162582071537*^9}, {3.7051628236111183`*^9, 3.705162824847286*^9}, {
   3.705163055408218*^9, 3.705163094321854*^9}, {3.705163159098906*^9, 
-  3.7051631592239103`*^9}}]
+  3.7051631592239103`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Part", "::", "partd"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Part specification \
+\[NoBreak]\\!\\(\\*RowBox[{\\\"$Failed\\\", \\\"\[LeftDoubleBracket]\\\", \
+RowBox[{\\\"1\\\", \\\",\\\", \\\"1\\\"}], \\\"\[RightDoubleBracket]\\\"}]\\)\
+\[NoBreak] is longer than depth of object. \\!\\(\\*ButtonBox[\\\"\
+\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/partd\\\", ButtonNote -> \
+\\\"Part::partd\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.705241944151239*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Part", "::", "partd"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Part specification \
+\[NoBreak]\\!\\(\\*RowBox[{\\\"$Failed\\\", \\\"\[LeftDoubleBracket]\\\", \
+RowBox[{\\\"1\\\", \\\",\\\", \\\"1\\\"}], \\\"\[RightDoubleBracket]\\\"}]\\)\
+\[NoBreak] is longer than depth of object. \\!\\(\\*ButtonBox[\\\"\
+\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/partd\\\", ButtonNote -> \
+\\\"Part::partd\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.705241944180942*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Part", "::", "partd"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Part specification \
+\[NoBreak]\\!\\(\\*RowBox[{\\\"$Failed\\\", \\\"\[LeftDoubleBracket]\\\", \
+RowBox[{\\\"1\\\", \\\",\\\", \\\"1\\\"}], \\\"\[RightDoubleBracket]\\\"}]\\)\
+\[NoBreak] is longer than depth of object. \\!\\(\\*ButtonBox[\\\"\
+\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/partd\\\", ButtonNote -> \
+\\\"Part::partd\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.705241944212002*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "stop"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Further output of \
+\[NoBreak]\\!\\(\\*StyleBox[RowBox[{\\\"Part\\\", \\\"::\\\", \
+\\\"partd\\\"}], \\\"MessageName\\\"]\\)\[NoBreak] will be suppressed during \
+this calculation. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/stop\\\", ButtonNote -> \
+\\\"General::stop\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.705241944228973*^9}]
+}, Open  ]]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -222,6 +335,19 @@ Cell[BoxData[{
  CellChangeTimes->{{3.705163115881472*^9, 3.7051631831420527`*^9}}],
 
 Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Inverse", "::", "sing"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Matrix \[NoBreak]\\!\\(\\*RowBox[{\\\"{\\\", RowBox[{\\\"\
+\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\"}], \\\"}\\\"}]\\)\
+\[NoBreak] is singular. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/sing\\\", ButtonNote -> \
+\\\"Inverse::sing\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.705241945819532*^9}],
+
+Cell[BoxData[
  InterpretationBox[
   TagBox[
    FrameBox[GridBox[{
@@ -229,17 +355,84 @@ Cell[BoxData[
        ItemBox[
         TagBox[
          TagBox[
-          RowBox[{"(", "\[NoBreak]", 
-           TemplateBox[{"1"},
-            "OutputSizeLimit`Skeleton",
-            DisplayFunction->(FrameBox[
-              RowBox[{"\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}],
-               Background -> GrayLevel[0.75], 
-              BaseStyle -> {
-               "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
-                ShowStringCharacters -> False}, BaselinePosition -> Baseline, 
-              ContentPadding -> False, FrameMargins -> 1, FrameStyle -> 
-              GrayLevel[0.75], RoundingRadius -> 7]& )], "\[NoBreak]", ")"}],
+          RowBox[{"Inverse", "[", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"$Failed", "\[LeftDoubleBracket]", 
+                RowBox[{"1", ",", "1"}], "\[RightDoubleBracket]"}], ",", 
+               RowBox[{"$Failed", "\[LeftDoubleBracket]", 
+                RowBox[{"2", ",", "1"}], "\[RightDoubleBracket]"}], ",", 
+               RowBox[{"$Failed", "\[LeftDoubleBracket]", 
+                RowBox[{"3", ",", "1"}], "\[RightDoubleBracket]"}], ",", 
+               RowBox[{"$Failed", "\[LeftDoubleBracket]", 
+                RowBox[{"4", ",", "1"}], "\[RightDoubleBracket]"}], ",", 
+               RowBox[{"$Failed", "\[LeftDoubleBracket]", 
+                RowBox[{"5", ",", "1"}], "\[RightDoubleBracket]"}], ",", 
+               RowBox[{"$Failed", "\[LeftDoubleBracket]", 
+                RowBox[{"6", ",", "1"}], "\[RightDoubleBracket]"}], ",", 
+               RowBox[{"$Failed", "\[LeftDoubleBracket]", 
+                RowBox[{"7", ",", "1"}], "\[RightDoubleBracket]"}], ",", 
+               RowBox[{"$Failed", "\[LeftDoubleBracket]", 
+                RowBox[{"8", ",", "1"}], "\[RightDoubleBracket]"}], ",", 
+               TemplateBox[{"184"},
+                "OutputSizeLimit`Skeleton",
+                DisplayFunction->(FrameBox[
+                  
+                  RowBox[{
+                   "\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}], 
+                  Background -> GrayLevel[0.75], 
+                  BaseStyle -> {
+                   "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                    ShowStringCharacters -> False}, BaselinePosition -> 
+                  Baseline, ContentPadding -> False, FrameMargins -> 1, 
+                  FrameStyle -> GrayLevel[0.75], RoundingRadius -> 7]& )], 
+               ",", 
+               RowBox[{"$Failed", "\[LeftDoubleBracket]", 
+                RowBox[{"193", ",", "1"}], "\[RightDoubleBracket]"}], ",", 
+               RowBox[{"$Failed", "\[LeftDoubleBracket]", 
+                RowBox[{"194", ",", "1"}], "\[RightDoubleBracket]"}], ",", 
+               RowBox[{"$Failed", "\[LeftDoubleBracket]", 
+                RowBox[{"195", ",", "1"}], "\[RightDoubleBracket]"}], ",", 
+               RowBox[{"$Failed", "\[LeftDoubleBracket]", 
+                RowBox[{"196", ",", "1"}], "\[RightDoubleBracket]"}], ",", 
+               RowBox[{"$Failed", "\[LeftDoubleBracket]", 
+                RowBox[{"197", ",", "1"}], "\[RightDoubleBracket]"}], ",", 
+               RowBox[{"$Failed", "\[LeftDoubleBracket]", 
+                RowBox[{"198", ",", "1"}], "\[RightDoubleBracket]"}], ",", 
+               RowBox[{"$Failed", "\[LeftDoubleBracket]", 
+                RowBox[{"199", ",", "1"}], "\[RightDoubleBracket]"}], ",", 
+               RowBox[{"$Failed", "\[LeftDoubleBracket]", 
+                RowBox[{"200", ",", "1"}], "\[RightDoubleBracket]"}]}], "}"}],
+              ",", 
+             TemplateBox[{"198"},
+              "OutputSizeLimit`Skeleton",
+              DisplayFunction->(FrameBox[
+                
+                RowBox[{
+                 "\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}], 
+                Background -> GrayLevel[0.75], 
+                BaseStyle -> {
+                 "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                  ShowStringCharacters -> False}, BaselinePosition -> 
+                Baseline, ContentPadding -> False, FrameMargins -> 1, 
+                FrameStyle -> GrayLevel[0.75], RoundingRadius -> 7]& )], ",", 
+             
+             RowBox[{"{", 
+              TemplateBox[{"1"},
+               "OutputSizeLimit`Skeleton",
+               DisplayFunction->(FrameBox[
+                 
+                 RowBox[{
+                  "\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}], 
+                 Background -> GrayLevel[0.75], 
+                 BaseStyle -> {
+                  "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                   ShowStringCharacters -> False}, BaselinePosition -> 
+                 Baseline, ContentPadding -> False, FrameMargins -> 1, 
+                 FrameStyle -> GrayLevel[0.75], RoundingRadius -> 7]& )], 
+              "}"}]}], "}"}], "]"}],
           Function[BoxForm`e$, 
            MatrixForm[BoxForm`e$]]],
          Short[#, 5]& ],
@@ -295,7 +488,7 @@ Cell[BoxData[
            Appearance->None,
            ButtonFunction:>OutputSizeLimit`ButtonFunction[
              Function[{OutputSizeLimit`Dump`x$}, 
-              MatrixForm[OutputSizeLimit`Dump`x$]], 189, 17627044564752820179,
+              MatrixForm[OutputSizeLimit`Dump`x$]], 201, 17627044564752820179,
               5/2],
            Enabled->True,
            Evaluator->Automatic,
@@ -326,7 +519,7 @@ Cell[BoxData[
            Appearance->None,
            ButtonFunction:>OutputSizeLimit`ButtonFunction[
              Function[{OutputSizeLimit`Dump`x$}, 
-              MatrixForm[OutputSizeLimit`Dump`x$]], 189, 17627044564752820179,
+              MatrixForm[OutputSizeLimit`Dump`x$]], 201, 17627044564752820179,
               5 2],
            Enabled->True,
            Evaluator->Automatic,
@@ -357,7 +550,7 @@ Cell[BoxData[
            Appearance->None,
            ButtonFunction:>OutputSizeLimit`ButtonFunction[
              Function[{OutputSizeLimit`Dump`x$}, 
-              MatrixForm[OutputSizeLimit`Dump`x$]], 189, 17627044564752820179,
+              MatrixForm[OutputSizeLimit`Dump`x$]], 201, 17627044564752820179,
               Infinity],
            Enabled->True,
            Evaluator->Automatic,
@@ -425,10 +618,10 @@ Cell[BoxData[
     StripOnInput->False],
    Deploy,
    DefaultBaseStyle->"Deploy"],
-  Out[189]]], "Output",
+  Out[201]]], "Output",
  CellChangeTimes->{{3.705163120195457*^9, 3.70516315676213*^9}, 
    3.705163241657579*^9, 3.705163303183169*^9, {3.705240786317463*^9, 
-   3.705240814227515*^9}}]
+   3.705240814227515*^9}, 3.7052419466767*^9}]
 }, Open  ]]
 }, Open  ]],
 
@@ -489,14 +682,15 @@ Cell[BoxData[{
    3.705161985710697*^9, 3.705162013722438*^9}, {3.705163207680685*^9, 
    3.705163219593947*^9}, {3.7051632792345543`*^9, 3.705163301223152*^9}}],
 
-Cell[BoxData["\<\"./fmatrixInvFlat_1003.csv\"\>"], "Output",
+Cell[BoxData["\<\"./fmatrixInvFlat_5201.csv\"\>"], "Output",
  CellChangeTimes->{
-  3.705163303214219*^9, {3.705240787802668*^9, 3.7052408162550917`*^9}}]
+  3.705163303214219*^9, {3.705240787802668*^9, 3.7052408162550917`*^9}, 
+   3.705241947092362*^9}]
 }, Open  ]]
 }, Open  ]]
 },
-WindowSize->{805, 570},
-WindowMargins->{{377, Automatic}, {93, Automatic}},
+WindowSize->{1600, 835},
+WindowMargins->{{0, Automatic}, {0, Automatic}},
 FrontEndVersion->"10.3 for Linux x86 (64-bit) (December 10, 2015)",
 StyleDefinitions->"Default.nb"
 ]
@@ -511,25 +705,38 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[400, 13, 5315, 77, 55, "Input"],
-Cell[5718, 92, 874, 14, 55, "Input"],
+Cell[400, 13, 5362, 77, 55, "Input"],
+Cell[5765, 92, 924, 15, 55, "Input"],
 Cell[CellGroupData[{
-Cell[6617, 110, 542, 8, 61, "Subsection"],
-Cell[7162, 120, 2837, 44, 121, "Input"],
-Cell[10002, 166, 1098, 30, 55, "Input"]
+Cell[6714, 111, 542, 8, 61, "Subsection"],
+Cell[CellGroupData[{
+Cell[7281, 123, 2837, 44, 77, "Input"],
+Cell[10121, 169, 461, 10, 23, "Message"],
+Cell[10585, 181, 461, 10, 23, "Message"],
+Cell[11049, 193, 461, 10, 23, "Message"],
+Cell[11513, 205, 562, 12, 23, "Message"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[11137, 201, 537, 8, 60, "Subsection"],
-Cell[CellGroupData[{
-Cell[11699, 213, 381, 8, 77, "Input"],
-Cell[12083, 223, 8139, 207, 103, "Output"]
+Cell[12112, 222, 1098, 30, 55, "Input"],
+Cell[13213, 254, 595, 12, 23, "Message"],
+Cell[13811, 268, 595, 12, 23, "Message"],
+Cell[14409, 282, 595, 12, 23, "Message"],
+Cell[15007, 296, 560, 12, 23, "Message"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[20271, 436, 527, 8, 61, "Subsection"],
+Cell[15616, 314, 537, 8, 60, "Subsection"],
 Cell[CellGroupData[{
-Cell[20823, 448, 2777, 41, 55, "Input"],
-Cell[23603, 491, 153, 2, 65, "Output"]
+Cell[16178, 326, 381, 8, 77, "Input"],
+Cell[16562, 336, 538, 11, 23, "Message"],
+Cell[17103, 349, 11806, 274, 129, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[28958, 629, 527, 8, 61, "Subsection"],
+Cell[CellGroupData[{
+Cell[29510, 641, 2777, 41, 55, "Input"],
+Cell[32290, 684, 179, 3, 32, "Output"]
 }, Open  ]]
 }, Open  ]]
 }
