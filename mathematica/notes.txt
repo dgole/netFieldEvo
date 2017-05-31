@@ -5,3 +5,6 @@
 1004 is 1000 points, 0.75 to 1200.0
 
 5200 is original 200 points, 0.75 to 60.0
+
+5200 is original 200 points, 0.75 to 60.0
+5201 is a test to make sure its the same as the original
