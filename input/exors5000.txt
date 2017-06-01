@@ -9,6 +9,7 @@ rMin             0.75
 rIn              1.0
 rOut		 1000.0
 rMax		 1200.0
+rYearNorm        100.0
 courantNo        0.03
 mdot0            1.e9
 bInitScale       1.e0

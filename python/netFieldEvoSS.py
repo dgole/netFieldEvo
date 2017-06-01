@@ -17,6 +17,7 @@ for i in range(inp.shape[0]):
 	elif word == 'rMax' : rMax = number
 	elif word == 'rIn' :  rIn = number
 	elif word == 'rOut' : rOut = number
+	elif word == 'rYearNorm' : rYearNorm = number
 	elif word == 'tWait' : tWait = number
 	elif word == 'tFlip' : tFlip = number
 	elif word == 'nCycles' : nCycles = number
@@ -59,14 +60,11 @@ for i in range(nr):
 			riBuffer1=i+1
 		if tempGrid[i]<rOut:
 			riBuffer2=i+1			
-
 nSmooth = 5
-
 mu          = 1.0
 mp          = 1.0
 kr0         = 1.0
 kb          = 1.0
-rYearNorm   = 100.0
 rootGM      = (2.0*3.14159)*np.power(rYearNorm,1.5)
 littleSigma = 1.0
 
