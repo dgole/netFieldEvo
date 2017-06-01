@@ -39,6 +39,8 @@ for i in range(inp.shape[0]):
 	elif word == 'sigBcFactor' : sigBcFactor = number
 	#elif word == '' :  = number
 
+print(tWait)
+print(tFlip)
 prandtl = 1.0
 tCycle = 2.0*tFlip
 tmax = tWait + nCycles * tCycle
@@ -56,12 +58,7 @@ for i in range(nr):
 		if tempGrid[i]<rIn:
 			riBuffer1=i+1
 		if tempGrid[i]<rOut:
-			riBuffer2=i+1
-print tempGrid[riBuffer1]
-print riBuffer1
-print tempGrid[riBuffer2]
-print riBuffer2
-			
+			riBuffer2=i+1			
 
 nSmooth = 5
 
@@ -177,7 +174,6 @@ def getTimeStep(sg, dg, s):
 class StaticGrid:
 	def __init__(self, idNum):
 		self.r = np.loadtxt("../fmatrix/outGrid_" + str(idNum) + ".csv", delimiter=',')
-		print self.r
 		self.rootr = np.power(self.r, 0.5)
 		self.x = self.rootr
 		self.dx = np.zeros_like(self.r)
@@ -399,9 +395,6 @@ nOut=len(tOut)
 
 writeToFile(sg, dgOut, sOut, nOutCurrent, timer)
 
-
-print nOut
-print nOutCurrent
 
 timer.printInfo()
 
