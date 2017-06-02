@@ -6,7 +6,7 @@ import resource
 import time
 
 # process input file111
-inp = np.asarray(np.genfromtxt("../input/input"+str(sys.argv[1])+".txt", dtype=None))
+inp = np.asarray(np.genfromtxt("../input/exors"+str(sys.argv[1])+".txt", dtype=None))
 for i in range(inp.shape[0]):
 	word = inp[i][0]
 	number = inp[i][1]
@@ -54,6 +54,8 @@ outerDiffBc = 0
 driveAmp = driveAmpFrac*bInitScale
 dtOut = tmax/float(nOut)
 tempGrid = np.loadtxt("../fmatrix/outGrid_" + str(gridId) + ".csv", delimiter=',')
+for i in range(nr):
+	print(str(i) + ", " + str(tempGrid[i]))
 for i in range(nr):
 	if tempGrid[i]:
 		if tempGrid[i]<rIn:

@@ -40,8 +40,6 @@ for i in range(inp.shape[0]):
 	elif word == 'sigBcFactor' : sigBcFactor = number
 	#elif word == '' :  = number
 
-print(tWait)
-print(tFlip)
 prandtl = 1.0
 tCycle = 2.0*tFlip
 tmax = tWait + nCycles * tCycle
