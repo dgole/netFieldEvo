@@ -41,13 +41,17 @@ class Data:
 		if savePath is None:
 			self.savePath = self.path
 		if not os.path.exists(self.savePath): os.makedirs(self.savePath)
+		ntRightNow = self.data[0].shape[0]	
+		print "I want the time to be " + str(len(time))
+		print "but I have to make it " + str(ntRightNow)
 		self.r = sgrid[0]
 		self.dr = sgrid[1]
 		self.Omega = sgrid[2]
 		self.tOrbit = (2.0*3.14159)/self.Omega
 		self.vKep=self.Omega*self.r
-		self.t = time
+		self.t = time[:ntRightNow]
 		self.dt = self.t-np.roll(self.t,1); self.dt[0]=self.dt[1]
+		self.dt = self.dt[:ntRightNow]
 		self.header = [r"$\alpha$", r"$h/r$", r"$T_c^4$", r"$T_disk^4$", r"$c_s$", r"$\rho$", r"$\kappa_R$", r"$\nu$", r"$\tau$", r"$\dot{M}$", r"$v_{adv}$", r"$v_{diff}$", r"$B_z$", r"$B_{rs}$", r"$\psi$", r"$\Sigma$", r"$\beta$"]  		
 		self.pdfName = PdfPages(self.savePath + "/plots.pdf")
 		self.tmax = self.t.max()
@@ -60,8 +64,7 @@ class Data:
 		self.data.append(-self.r/self.data[10]); self.header.append(r"$t_{adv}$")		
 		self.data.append(self.r/self.data[11]); self.header.append(r"$v_{adv}$")
 		self.data.append((3.0/4.0)*self.data[9]*np.square(self.Omega)*self.r*self.dr); self.header.append("dFlux")
-		self.lum = np.sum(self.data[21], axis=1)/np.sum(self.data[21][self.gettindex(10)]); 
-			
+		self.lum = np.sum(self.data[21], axis=1)/np.sum(self.data[21][self.gettindex(10)]); 		
 			
 	def getrindex(self, r1):
 		return (np.abs(self.r-r1)).argmin()
