@@ -5,7 +5,7 @@
 #SBATCH -N 1
 #SBATCH --ntasks 24
 #SBATCH -o ../output/outfile_6002.txt
-#SBATCH -e ../output/outfile_6002.txt
+#SBATCH -e ../output/errfile_6002.txt
 #SBATCH --qos=normal
 #SBATCH -A ucb-general
 
