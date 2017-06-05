@@ -40,8 +40,6 @@ for i in range(inp.shape[0]):
 	elif word == 'sigBcFactor' : sigBcFactor = number
 	#elif word == '' :  = number
 
-print(tWait)
-print(tFlip)
 prandtl = 1.0
 tCycle = 2.0*tFlip
 tmax = tWait + nCycles * tCycle
@@ -320,6 +318,7 @@ def report(timer, n, t, tmax):
 	sys.stdout.write( str(round(msPerCycle,3)) + " ms per cycle total" + "\n")
 	sys.stdout.write( str(round(msPerCycleRecent,3)) + " ms per cycle recently " + "\n")    
 	sys.stdout.write( str(int(timeRemaining/3600)) + ":" + str(int(timeRemaining%3600/60)) + ":" + str(int((timeRemaining%60))) + " remaining" + "\n") 
+	sys.stdout.flush()
 
 # function to write to file
 def writeToFile(sg, dgOut, sOut, nOutCurrent, timer):
