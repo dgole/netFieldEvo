@@ -108,13 +108,13 @@ do.multiProfile(17, 10, logOption=0, save="pdf", ymin=-2.0, ymax=2.0)
 do.pdfName.close()
 
 
-'''
+
 if str(sys.argv[2])=="save": 
 	t0 = time.time()
 	do.makeMultiAnim(save="yes", timeCutFactor=2, lengthInSeconds=60)
 	print time.time() - t0
 if str(sys.argv[2])=="show": do.makeMultiAnim(show="yes")
-'''
+
 
 
 
