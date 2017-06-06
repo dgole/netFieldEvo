@@ -44,6 +44,8 @@ class Data:
 		ntRightNow = self.data[0].shape[0]	
 		print "I want the time to be " + str(len(time))
 		print "but I have to make it " + str(ntRightNow)
+		ntRightNow = ntRightNow - 10
+		print "but to be even safer I'm making it " + str(ntRightNow)
 		self.r = sgrid[0]
 		self.dr = sgrid[1]
 		self.Omega = sgrid[2]

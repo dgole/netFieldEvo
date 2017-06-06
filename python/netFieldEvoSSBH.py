@@ -5,8 +5,8 @@ import sys
 import resource
 import time
 
-# process input file111
-inp = np.asarray(np.genfromtxt("../input/input"+str(sys.argv[1])+".txt", dtype=None))
+# process input file
+inp = np.asarray(np.genfromtxt("../input/bh"+str(sys.argv[1])+".txt", dtype=None))
 for i in range(inp.shape[0]):
 	word = inp[i][0]
 	number = inp[i][1]
@@ -19,8 +19,6 @@ for i in range(inp.shape[0]):
 	elif word == 'rOut' : rOut = number
 	elif word == 'rYearNorm' : rYearNorm = number
 	elif word == 'tWait' : tWait = number
-	elif word == 'tFlip' : tFlip = number
-	elif word == 'nCycles' : nCycles = number
 	elif word == 'nOut' : nOut = number
 	elif word == 'courantNo' : courantNo = number
 	elif word == 'mdot0' : mdot0 = number
@@ -31,20 +29,14 @@ for i in range(inp.shape[0]):
 	elif word == 'sig0option' : sig0option = int(number)
 	elif word == 'sig0index' : sig0index = number
 	elif word == 'driveAmpFrac' : driveAmpFrac = number
-	elif word == 'riDz1' : riDz1 = int(number)
-	elif word == 'riDz2' : riDz2 = int(number) 
 	elif word == 'alphaMaxAz' : alphaMaxAz = number
 	elif word == 'alphaMinAz' : alphaMinAz = number
-	elif word == 'alphaDz' : alphaDz = number
 	elif word == 'invBetazCut' : invBetazCut = number
 	elif word == 'sigBcFactor' : sigBcFactor = number
 	#elif word == '' :  = number
 
-print(tWait)
-print(tFlip)
 prandtl = 1.0
-tCycle = 2.0*tFlip
-tmax = tWait + nCycles * tCycle
+tmax = tWait
 reportCutFactor = 500;
 writeCutFactor = 5000;
 innerAdvBc  = 0
@@ -88,19 +80,7 @@ for i in range(nr):
 for i in range(nr):
 	alphaSmoothingMatrix[i]=alphaSmoothingMatrix[i]/np.sum(alphaSmoothingMatrix[i])
 def getAlpha(sg, s):
-	alphaActive = np.clip(11.0*np.power(np.abs(s.beta), -0.53),alphaMinAz,alphaMaxAz)
-	alphaDead = alphaDz*np.ones_like(sg.r)
-	activeOnes = np.zeros_like(sg.r)
-	deadOnes = np.zeros_like(sg.r)
-	activeOnes[0:riDz1]   = 1.0
-	deadOnes[0:riDz1]     = 0.0
-	activeOnes[riDz1:riDz2] = s.beta[riDz1:riDz2]<0.0
-	deadOnes[riDz1:riDz2]   = s.beta[riDz1:riDz2]>0.0
-	activeOnes[riDz2:nr]  = 1.0
-	deadOnes[riDz2:nr]    = 0.0
-	alpha = activeOnes*alphaActive + deadOnes*alphaDead 
-	alpha = np.dot(alphaSmoothingMatrix, alpha)	
-	return alpha
+	return np.clip(11.0*np.power(np.abs(s.beta), -0.53),alphaMinAz,alphaMaxAz)
 
 # driving sigma and/or bz
 def getAddToSig(sg, dg, s):
@@ -108,7 +88,7 @@ def getAddToSig(sg, dg, s):
 	return addToSig
 def getAddToBz(sg, dg, s):
 	addToBz = np.zeros_like(sg.r)
-	#addToBz[0:riBuffer1] = driveAmp
+	addToBz[0:riBuffer1] = 0.01*driveAmp
 	teff = sg.t[-1]-tWait
 	if sg.t[-1]>tWait:	
 		if teff%tCycle<(tCycle/2.0):
@@ -318,6 +298,7 @@ def report(timer, n, t, tmax):
 	sys.stdout.write( str(round(msPerCycle,3)) + " ms per cycle total" + "\n")
 	sys.stdout.write( str(round(msPerCycleRecent,3)) + " ms per cycle recently " + "\n")    
 	sys.stdout.write( str(int(timeRemaining/3600)) + ":" + str(int(timeRemaining%3600/60)) + ":" + str(int((timeRemaining%60))) + " remaining" + "\n") 
+	sys.stdout.flush()
 
 # function to write to file
 def writeToFile(sg, dgOut, sOut, nOutCurrent, timer):
