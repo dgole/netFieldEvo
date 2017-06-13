@@ -1,6 +1,6 @@
-runId            6006
+runId            6017
 tWait            1.e1
-tFlip            3.0
+tFlip            10.0
 nCycles          10
 nOut		 4000
 gridId           1002
@@ -17,7 +17,7 @@ bz0option        0
 bz0index         -0.5
 sig0option       0
 sig0index        0.0
-driveAmpFrac     1.e-2
+driveAmpFrac     1.e-1
 riDz1            78
 riDz2            146
 alphaMaxAz       1.e-2  

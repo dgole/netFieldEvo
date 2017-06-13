@@ -1,6 +1,6 @@
-runId            6006
+runId            6007
 tWait            1.e1
-tFlip            3.0
+tFlip            10.0
 nCycles          10
 nOut		 4000
 gridId           1002

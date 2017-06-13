@@ -1,6 +1,6 @@
-runId            6006
+runId            6025
 tWait            1.e1
-tFlip            3.0
+tFlip            1.0
 nCycles          10
 nOut		 4000
 gridId           1002
@@ -12,7 +12,7 @@ rMax		 600.0
 rYearNorm        100.0
 courantNo        0.03
 mdot0            1.e9
-bInitScale       1.e0
+bInitScale       1.e4
 bz0option        0
 bz0index         -0.5
 sig0option       0
@@ -20,10 +20,10 @@ sig0index        0.0
 driveAmpFrac     1.e-2
 riDz1            78
 riDz2            146
-alphaMaxAz       1.e-2  
+alphaMaxAz       1.e-0  
 alphaMinAz       1.e-2
 alphaDz          4.e-4
-sigBcFactor      0.9
+sigBcFactor      0.97
 
 
 

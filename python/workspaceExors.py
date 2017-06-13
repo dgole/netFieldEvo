@@ -111,7 +111,7 @@ do.pdfName.close()
 
 if str(sys.argv[2])=="save": 
 	t0 = time.time()
-	do.makeMultiAnim(save="yes", timeCutFactor=2, lengthInSeconds=60)
+	do.makeMultiAnim(save="yes", timeCutFactor=int(sys.argv[3]), lengthInSeconds=60)
 	print time.time() - t0
 if str(sys.argv[2])=="show": do.makeMultiAnim(show="yes")
 
