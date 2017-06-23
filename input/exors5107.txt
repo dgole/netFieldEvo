@@ -1,5 +1,5 @@
-runId            5100
-tWait            1.e2
+runId            5107
+tWait            1.e1
 tFlip            50.0
 nCycles          0
 nOut		 4000
@@ -23,7 +23,7 @@ riDz2            1000
 alphaMaxAz       1.e-2  
 alphaMinAz       1.e-2
 alphaDz          4.e-4
-sigBcFactor      0.99911
+sigBcFactor      1.04
 
 
 

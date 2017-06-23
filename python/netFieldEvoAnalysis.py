@@ -1,8 +1,9 @@
 #!/usr/bin/python
 from __future__ import unicode_literals
-import numpy as np
 import matplotlib as m
+#matplotlib.use('Agg')
 import matplotlib.pyplot as plt
+import numpy as np
 from mpl_toolkits.axes_grid1 import AxesGrid
 import os
 import math
@@ -15,6 +16,8 @@ import numpy.random
 import matplotlib.animation as animation
 from matplotlib.pylab import *
 from mpl_toolkits.axes_grid1 import host_subplot
+from matplotlib.colors import LogNorm
+import matplotlib.colors as colors
 m.rcParams['text.usetex'] = True
 m.rcParams['text.latex.unicode'] = True
 
@@ -29,7 +32,7 @@ class Data:
 		return (np.abs(self.t-t1)).argmin()
 
 	def __init__(self, path, savePath=None):
-		print "initializing data structure from " + str(path)
+		print("initializing data structure from " + str(path))
 		self.path= path
 		sgrid = np.load(self.path+"sgrid.npy")
 		dgrid = np.load(self.path+"dgrid.npy")
@@ -41,19 +44,18 @@ class Data:
 		if savePath is None:
 			self.savePath = self.path
 		if not os.path.exists(self.savePath): os.makedirs(self.savePath)
-		ntRightNow = self.data[0].shape[0]	
-		print "I want the time to be " + str(len(time))
-		print "but I have to make it " + str(ntRightNow)
-		ntRightNow = ntRightNow - 10
-		print "but to be even safer I'm making it " + str(ntRightNow)
+		#ntRightNow = self.data[0].shape[0]	
+		#print("I want the time to be " + str(len(time)))
+		#print("but I have to make it " + str(ntRightNow))
+		#ntRightNow = ntRightNow - 10
+		#print("but to be even safer I'm making it " + str(ntRightNow))
 		self.r = sgrid[0]
 		self.dr = sgrid[1]
 		self.Omega = sgrid[2]
 		self.tOrbit = (2.0*3.14159)/self.Omega
 		self.vKep=self.Omega*self.r
-		self.t = time[:ntRightNow]
+		self.t = time
 		self.dt = self.t-np.roll(self.t,1); self.dt[0]=self.dt[1]
-		self.dt = self.dt[:ntRightNow]
 		self.header = [r"$\alpha$", r"$h/r$", r"$T_c^4$", r"$T_disk^4$", r"$c_s$", r"$\rho$", r"$\kappa_R$", r"$\nu$", r"$\tau$", r"$\dot{M}$", r"$v_{adv}$", r"$v_{diff}$", r"$B_z$", r"$B_{rs}$", r"$\psi$", r"$\Sigma$", r"$\beta$"]  		
 		self.pdfName = PdfPages(self.savePath + "/plots.pdf")
 		self.tmax = self.t.max()
@@ -85,7 +87,9 @@ class Data:
 		tArray = np.asarray([n*dt for n in range(nProfiles+1)])
 		return tArray
 
-	def profile(self, col, time, vLineCoords=[1.0, 50.0], hLineCoords=[], logOption=0, save=None, savePath=None, legendLabel=None, ymin=None, ymax=None):
+
+
+	def profile(self, col, time, vLineCoords=[1.0, 100.0], hLineCoords=[], logOption=0, save=None, savePath=None, legendLabel=None, ymin=None, ymax=None):
 		n=self.gettindex(time)
 		if savePath is None:
 			savePath=self.savePath
@@ -112,17 +116,19 @@ class Data:
 		plt.tight_layout()
 		if save=="png":
 			plt.savefig(savePath + "profile_" + str(col) + ".png", bbox_inches='tight')
-			print "saved profile plot for column " + str(col) + " to png"
+			print("saved profile plot for column " + str(col) + " to png")
 		if save=="pdf":
 			plt.savefig(self.pdfName, format='pdf', bbox_inches='tight');
-			print "saved profile plot for column " + str(col) + " to pdf"
+			print("saved profile plot for column " + str(col) + " to pdf")
 		if save is None:
 			plt.legend(bbox_to_anchor=(1.02, 1), loc=2, borderaxespad=0.)
 			#plt.legend()
 		if save is not None:
 			plt.clf()
 
-	def multiProfile(self, col, nProfiles, spacing="log", vLineCoords1=[1.0,50.0], hLineCoords1=[], logOption=0, save=None, savePath=None, ymin=None, ymax=None):
+
+
+	def multiProfile(self, col, nProfiles, spacing="log", vLineCoords1=[1.0,100.0], hLineCoords1=[], logOption=0, save=None, savePath=None, ymin=None, ymax=None):
 		if spacing=="lin":
 			tList = self.getLinSpacedTimeList(nProfiles)
 		if spacing=="log":
@@ -131,10 +137,12 @@ class Data:
 			self.profile(col, tList[n], logOption=logOption, legendLabel="t = " + str(np.round(tList[n],1)), ymin=ymin, ymax=ymax, vLineCoords=vLineCoords1, hLineCoords=hLineCoords1)
 		if save=="png":
 			plt.savefig(savePath + "multiProfile_" + str(col) + ".png", bbox_inches='tight'); plt.clf()
-			print "saved multi profile plot for column " + str(col) + " to png"
+			print("saved multi profile plot for column " + str(col) + " to png")
 		if save=="pdf":
 			plt.savefig(self.pdfName, format='pdf', bbox_inches='tight'); plt.clf()
-			print "saved multi profile plot for column " + str(col) + " to pdf"
+			print("saved multi profile plot for column " + str(col) + " to pdf")
+
+
 
 	def makeMultiAnim(self, timeCutFactor=10, lengthInSeconds=20, savePath=None, show=None, save=None):
 		# Setup figure and subplots
@@ -199,7 +207,7 @@ class Data:
 
 		# interval: draw new frame every 'interval' ms
 		# frames: number of frames to draw
-		nFrames = self.nt/timeCutFactor
+		nFrames = int(self.nt/timeCutFactor)
 		framesPerSecond = nFrames/lengthInSeconds
 		simulation = animation.FuncAnimation(f0, updateData, blit=False, frames=nFrames, interval=10, repeat=False)
 		# Uncomment the next line if you want to save the animation
@@ -208,9 +216,12 @@ class Data:
 			plt.tight_layout()
 			plt.show()
 		if save is not None:
-			Writer = animation.writers['ffmpeg']
+			Writer = animation.writers['imagemagick']
+			#Writer = animation.writers['ffmpeg']
 			writer = Writer(fps=framesPerSecond, metadata=dict(artist='Me'), bitrate=1800)
 			simulation.save(self.savePath+'anim1.mp4', writer=writer)
+
+
 
 	def timeEvo(self, col, r, logOption=0, save=None, savePath=None, legendLabel=None, ymin=None, ymax=None):
 		i=self.getrindex(r) 
@@ -235,10 +246,10 @@ class Data:
 		plt.tight_layout()
 		if save=="png":
 			plt.savefig(savePath + "timeEvo_" + str(col) + ".png", bbox_inches='tight')
-			print "saved time evo plot for column " + str(col) + " to png"
+			print("saved time evo plot for column " + str(col) + " to png")
 		if save=="pdf":
 			plt.savefig(self.pdfName, format='pdf', bbox_inches='tight');
-			print "saved time evo plot for column " + str(col) + " to pdf"
+			print("saved time evo plot for column " + str(col) + " to pdf")
 		if save is None:
 			plt.legend(bbox_to_anchor=(1.02, 1), loc=2, borderaxespad=0.)
 			#plt.legend()
@@ -246,12 +257,121 @@ class Data:
 			plt.clf()
 
 
+	def stPlot(self, col, cmapType="coolwarm", logOption=0, save=None, savePath=None, clim1=None, clim2=None, hLineCoords=[0, 1, 2], xLabel=1 ):
+		print(self.path + ": making ST plot for column " + str(col))
+		if savePath is None:
+			savePath=self.path
+		plotData = self.data[col]; title = self.header[col];
+		if logOption==1:
+			plt.imshow(np.transpose(np.fliplr(plotData)), extent=[0,self.tmax,np.log10(self.rmin),np.log10(self.rmax)], aspect=(100*self.tmax/(self.rmax-self.rmin)), cmap=plt.get_cmap(cmapType), norm=LogNorm(vmin=clim1, vmax=clim2))
+		if logOption==0:
+			plt.imshow(np.transpose(np.fliplr(plotData)), extent=[0,self.tmax,np.log10(self.rmin),np.log10(self.rmax)], aspect=(100*self.tmax/(self.rmax-self.rmin)), cmap=plt.get_cmap(cmapType))
+		if logOption==2:
+			plotData=plotData/np.amax(np.abs(plotData))
+			plt.imshow(np.transpose(np.fliplr(plotData)), extent=[0,self.tmax,np.log10(self.rmin),np.log10(self.rmax)], aspect=(100*self.tmax/(self.rmax-self.rmin)), cmap=cmapType, norm=colors.SymLogNorm(linthresh=0.0001, linscale=0.1, vmin=-1.0, vmax=1.0))
+		#plt.yscale('log')
+		plt.title(title)
+		if xLabel == 1: plt.xlabel("Time (code units)")	
+		plt.ylabel("log(r) (code units)")
+		plt.colorbar(shrink=0.5) #ticks=[-10^0, -10^-1, -10^-2, -10^-3, 10^-3, 10^-2, 10^-1, 10^0])
+		if (clim1 is not None and clim2 is not None):
+			plt.clim(clim1,clim2)
+		if (clim1 is not None and clim2 is None):
+			plt.clim(clim1,np.amax(plotData))
+		if (clim1 is None and clim2 is not None):
+			plt.clim(np.aminx(plotData),clim2)
+		for yc in hLineCoords: plt.axhline(y=yc, color='k', linestyle='--')
+		plt.tight_layout()
+		if save=="png":
+			plt.savefig(savePath + "ST_" + str(col) + ".png", bbox_inches='tight')
+			print("saved ST plot for column " + str(col) + " to png")
+		if save=="pdf":
+			plt.savefig(self.pdfName, format='pdf', bbox_inches='tight');
+			print("saved ST plot for column " + str(col) + " to pdf")
+		plt.clf()
 
 
 '''
-	
+	def multiStPlot(self, savePath=None):
+		print(self.path + ": making multi pannel ST plot")
+		if savePath is None:
+			savePath=self.path
+
+		fig, (ax1, ax2) = plt.subplots(2, 1, sharex=True)
+		
+		col = 12
+		title = self.header[col]		
+		plotData = self.data[col] 
+		plotData=plotData/np.amax(np.abs(plotData))
+		plot1 = ax1.imshow(np.transpose(np.fliplr(plotData)), 
+							extent=[0,self.tmax,np.log10(self.rmin),np.log10(self.rmax)], 
+							aspect=(100*self.tmax/(self.rmax-self.rmin)), 
+							cmap='coolwarm', 
+							norm=colors.SymLogNorm(linthresh=0.0001, linscale=0.1, vmin=-1.0, vmax=1.0))
+		plt.figure()		
+		plt.colorbar(plot1)
+		ax1.set_title(title)
+		ax1.set_ylabel("log(r) (code units)")
+		
+		col = 0
+		title = self.header[col]		
+		plotData = self.data[col] 
+		plot2 = ax2.imshow(np.transpose(np.fliplr(plotData)), 
+							extent=[0,self.tmax,np.log10(self.rmin),np.log10(self.rmax)], 
+							aspect=(100*self.tmax/(self.rmax-self.rmin)), 
+							cmap='viridis', 
+							norm=LogNorm(vmin=1.e-4, vmax=1.e-2))
+		plt.figure(ax2)
+		plt.colorbar(plot2)		
+		ax2.set_title(title)
+		ax2.set_xlabel("Time (code units)")
+		ax2.set_ylabel("log(r) (code units)")
+		
+ 
+		plt.savefig(savePath + "MST.png", bbox_inches='tight')
+		print("saved MST plot to png")
+		plt.clf()
+'''
+		
 
 
+'''
+	def stPlot(self, col, cmapType="coolwarm", logOption=0, save=None, savePath=None, clim1=None, clim2=None):
+		print(self.path + ": making ST plot for column " + str(col))
+		if savePath is None:
+			savePath=self.path
+		if logOption==0:
+			plotData = self.data[col]; title = self.header[col];
+		if logOption==1:
+			plotData = np.log10(np.absolute(self.data[col])); title = "log " + self.header[col];
+		plt.imshow(np.transpose(np.fliplr(plotData)), extent=[0,self.tmax,self.rmin,self.rmax], aspect=(0.5*self.tmax/(self.rmax-self.rmin)), cmap=plt.get_cmap(cmapType))
+		plt.yscale('log')
+		plt.title(title); plt.xlabel("Time (code units)"); plt.ylabel("r (code units)");
+		plt.colorbar(shrink=0.5)
+		if (clim1 is not None and clim2 is not None):
+			plt.clim(clim1,clim2)
+		if (clim1 is not None and clim2 is None):
+			plt.clim(clim1,np.amax(plotData))
+		if (clim1 is None and clim2 is not None):
+			plt.clim(np.aminx(plotData),clim2)
+		plt.tight_layout()
+		if save=="png":
+			plt.savefig(savePath + "ST_" + str(col) + ".png", bbox_inches='tight')
+			print("saved ST plot for column " + str(col) + " to png")
+		if save=="pdf":
+			plt.savefig(self.pdfName, format='pdf', bbox_inches='tight');
+			print("saved ST plot for column " + str(col) + " to pdf")
+		plt.clf()
+'''
+
+
+
+
+'''
+	def addCol(self, funcName, label, *args, **kwargs):
+		print(self.path + ": adding column named " + label)
+		self.data.append(funcName(self.data))
+		self.header.append(label)
 
 	def multiTimeEvo(self, col, rList, logOption=0, save=None, savePath=None, ymin=None, ymax=None):
 		for r in rList: 

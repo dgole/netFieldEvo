@@ -6,38 +6,39 @@ import resource
 import time
 
 # process input file111
-inp = np.asarray(np.genfromtxt("../input/exors"+str(sys.argv[1])+".txt", dtype=None))
+inp = np.asarray(np.genfromtxt("../input/exors"+str(sys.argv[1])+".txt", dtype=str))
+print(inp)
 for i in range(inp.shape[0]):
 	word = inp[i][0]
 	number = inp[i][1]
 	if   word == 'runId' : runId = int(number)
 	elif word == 'gridId' : gridId = int(number)
 	elif word == 'nr' : nr = int(number)
-	elif word == 'rMin' : rMin = number
-	elif word == 'rMax' : rMax = number
-	elif word == 'rIn' :  rIn = number
-	elif word == 'rOut' : rOut = number
-	elif word == 'rYearNorm' : rYearNorm = number
-	elif word == 'tWait' : tWait = number
-	elif word == 'tFlip' : tFlip = number
-	elif word == 'nCycles' : nCycles = number
-	elif word == 'nOut' : nOut = number
-	elif word == 'courantNo' : courantNo = number
-	elif word == 'mdot0' : mdot0 = number
-	elif word == 'bInitScale' : bInitScale = number
+	elif word == 'rMin' : rMin = float(number)
+	elif word == 'rMax' : rMax = float(number)
+	elif word == 'rIn' :  rIn = float(number)
+	elif word == 'rOut' : rOut = float(number)
+	elif word == 'rYearNorm' : rYearNorm = float(number)
+	elif word == 'tWait' : tWait = float(number)
+	elif word == 'tFlip' : tFlip = float(number)
+	elif word == 'nCycles' : nCycles = float(number)
+	elif word == 'nOut' : nOut = float(number)
+	elif word == 'courantNo' : courantNo = float(number)
+	elif word == 'mdot0' : mdot0 = float(number)
+	elif word == 'bInitScale' : bInitScale = float(number)
 	elif word == 'bz0option' : bz0option = int(number)
-	elif word == 'bz0factor' : bz0factor = number
-	elif word == 'bz0index'  : bz0index = number
+	elif word == 'bz0factor' : bz0factor = float(number)
+	elif word == 'bz0index'  : bz0index = float(number)
 	elif word == 'sig0option' : sig0option = int(number)
-	elif word == 'sig0index' : sig0index = number
-	elif word == 'driveAmpFrac' : driveAmpFrac = number
+	elif word == 'sig0index' : sig0index = float(number)
+	elif word == 'driveAmpFrac' : driveAmpFrac = float(number)
 	elif word == 'riDz1' : riDz1 = int(number)
 	elif word == 'riDz2' : riDz2 = int(number) 
-	elif word == 'alphaMaxAz' : alphaMaxAz = number
-	elif word == 'alphaMinAz' : alphaMinAz = number
-	elif word == 'alphaDz' : alphaDz = number
-	elif word == 'invBetazCut' : invBetazCut = number
-	elif word == 'sigBcFactor' : sigBcFactor = number
+	elif word == 'alphaMaxAz' : alphaMaxAz = float(number)
+	elif word == 'alphaMinAz' : alphaMinAz = float(number)
+	elif word == 'alphaDz' : alphaDz = float(number)
+	elif word == 'invBetazCut' : invBetazCut = float(number)
+	elif word == 'sigBcFactor' : sigBcFactor = float(number)
 	#elif word == '' :  = number
 
 prandtl = 1.0
